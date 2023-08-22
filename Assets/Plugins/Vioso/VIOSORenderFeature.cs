@@ -25,8 +25,7 @@ internal class VIOSORenderFeature : ScriptableRendererFeature
     public override void SetupRenderPasses(ScriptableRenderer renderer,
                                         in RenderingData renderingData)
     {
-        if (renderingData.cameraData.cameraType == CameraType.Game)
-        {
+        if (renderingData.cameraData.cameraType == CameraType.Game) {
             // Calling ConfigureInput with the ScriptableRenderPassInput.Color argument
             // ensures that the opaque texture is available to the Render Pass.
             m_RenderPass.ConfigureInput(ScriptableRenderPassInput.Color);

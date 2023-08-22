@@ -175,76 +175,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProjectionSetup
       objectReference: {fileID: 0}
+    - target: {fileID: 6847047205041720110, guid: c868945916250034c8669716a53598ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 667839171774578978, guid: c868945916250034c8669716a53598ab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 142950666}
-    - targetCorrespondingSourceObject: {fileID: 4417640208548797209, guid: c868945916250034c8669716a53598ab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 142950667}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c868945916250034c8669716a53598ab, type: 3}
---- !u!1 &142950664 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 667839171774578978, guid: c868945916250034c8669716a53598ab, type: 3}
-  m_PrefabInstance: {fileID: 142950663}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &142950665 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4417640208548797209, guid: c868945916250034c8669716a53598ab, type: 3}
-  m_PrefabInstance: {fileID: 142950663}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &142950666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142950664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be76e5f14cfee674cb30b491fb72b09b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boost: 3.5
-  positionLerpTime: 0.2
-  mouseSensitivity: 60
-  mouseSensitivityCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 5
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 2.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  rotationLerpTime: 0.01
-  invertY: 0
---- !u!81 &142950667
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142950665}
-  m_Enabled: 1
 --- !u!1 &170171480
 GameObject:
   m_ObjectHideFlags: 0

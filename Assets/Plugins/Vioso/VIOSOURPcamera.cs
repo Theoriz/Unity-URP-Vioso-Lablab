@@ -46,10 +46,8 @@ public class VIOSOURPcamera : MonoBehaviour
     /// </summary>
     /// <param name="cam"></param>
     /// <param name="s"></param>
-    public void MyUpdate( ref Camera cam, ref WarperSet s )
-    {
-        if (s != null)
-        {
+    public void MyUpdate(ref Camera cam, ref WarperSet s) {
+        if (s != null) {
             Warper.VEC3 pos = new Warper.VEC3(0, 0, 0);
             Warper.VEC3 rot = new Warper.VEC3(0, 0, 0);
             Warper.MAT4X4 mVV = new Warper.MAT4X4(
@@ -67,8 +65,7 @@ public class VIOSOURPcamera : MonoBehaviour
             Matrix4x4 mP = Matrix4x4.identity;
             Matrix4x4 mVP = Matrix4x4.identity;
             if (Warper.ERROR.NONE == s._warper.GetViewClip(ref pos, ref rot, ref mVV, ref clip) &&
-                 Warper.ERROR.NONE == s._warper.GetShaderVPMatrix(ref mVVP))
-            {
+                 Warper.ERROR.NONE == s._warper.GetShaderVPMatrix(ref mVVP)) {
                 mV.m00 = mVV._11;
                 mV.m01 = mVV._12;
                 mV.m02 = mVV._13;
@@ -109,7 +106,7 @@ public class VIOSOURPcamera : MonoBehaviour
                 //Vector3 p = mV.GetColumn(3);
                 mV = mV.transpose;
                 //Quaternion q = mV.rotation;
-               Quaternion q = Quaternion.Inverse(mV.rotation);
+                Quaternion q = Quaternion.Inverse(mV.rotation);
                 Vector3 p = mV.GetColumn(3);
                 cam.transform.localRotation = s._orig_rot * q;
                 cam.transform.localPosition = s._orig_pos + p;
@@ -127,19 +124,15 @@ public class VIOSOURPcamera : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
+    private void Start() {
         RenderPipelineManager.beginCameraRendering += OnBeginCameraRendering;
     }
-    private void OnEnable()
-    {
+    private void OnEnable() {
         Camera cam = GetComponent<Camera>();
         WarperSet s;
-        if (!_warperDict.TryGetValue(cam.name, out s))
-        {
+        if (!_warperDict.TryGetValue(cam.name, out s)) {
             //Debug.Log("VIOSOWarpBlendPP.Render(), new camera " + cam.name);
-            try
-            {
+            try {
                 // create a new warper with the name of the camera
                 Warper w = new Warper(Warper.DummyDevice, "VIOSOWarpBlend.ini", cam.name);
 
@@ -162,8 +155,7 @@ public class VIOSOURPcamera : MonoBehaviour
                 // warpmap must be present, no need to test
                 // to access each pixel's data use
                 Texture2D warpTex = null;
-                if (IntPtr.Zero != warpmap)
-                {
+                if (IntPtr.Zero != warpmap) {
                     // marshal IntPtr to byte[]
                     int szMap = Marshal.SizeOf(typeof(Warper.WARPRECORD)) * (int)header.width * (int)header.height;
 
@@ -181,22 +173,16 @@ public class VIOSOURPcamera : MonoBehaviour
                 //   if BLENDV2 & header.flags RGBA16U
                 //   else RGBA8U
                 Texture2D blendTex = null;
-                if (IntPtr.Zero != blendmap)
-                {
-                    if ((header.flags & (uint)Warper.FLAGS.BLENDV3) != 0)
-                    {
+                if (IntPtr.Zero != blendmap) {
+                    if ((header.flags & (uint)Warper.FLAGS.BLENDV3) != 0) {
                         blendTex = new Texture2D((int)header.width, (int)header.height, TextureFormat.RGBAFloat, false);
                         blendTex.LoadRawTextureData(blendmap, Marshal.SizeOf(typeof(Warper.BLENDRECORD3)) * (int)header.width * (int)header.height);
                         blendTex.Apply();
-                    }
-                    else if ((header.flags & (uint)Warper.FLAGS.BLENDV2) != 0)
-                    {
+                    } else if ((header.flags & (uint)Warper.FLAGS.BLENDV2) != 0) {
                         blendTex = new Texture2D((int)header.width, (int)header.height, TextureFormat.RGBA64, false);
                         blendTex.LoadRawTextureData(blendmap, Marshal.SizeOf(typeof(Warper.BLENDRECORD2)) * (int)header.width * (int)header.height);
                         blendTex.Apply();
-                    }
-                    else
-                    {
+                    } else {
                         blendTex = new Texture2D((int)header.width, (int)header.height, TextureFormat.RGBA32, false);
                         blendTex.LoadRawTextureData(blendmap, Marshal.SizeOf(typeof(Warper.BLENDRECORD)) * (int)header.width * (int)header.height);
                         blendTex.Apply();
@@ -213,8 +199,7 @@ public class VIOSOURPcamera : MonoBehaviour
                 // out = max(out, black); // do lower clamp to stay above common black, upper is done anyways
                 // to access each pixel's data use
                 Texture2D blackTex = null;
-                if (IntPtr.Zero != blackmap)
-                {
+                if (IntPtr.Zero != blackmap) {
                     blackTex = new Texture2D((int)header.width, (int)header.height, TextureFormat.RGBA32, false);
                     blackTex.LoadRawTextureData(blackmap, Marshal.SizeOf(typeof(Warper.BLENDRECORD)) * (int)header.width * (int)header.height);
                     blackTex.Apply();
@@ -232,30 +217,25 @@ public class VIOSOURPcamera : MonoBehaviour
 
                 Vector4 bb = new Vector4(header.blackScale, header.blackDark, header.blackDark * header.blackBright, ini.bDoNoBlack ? 0 : 1);
 
-                s = new WarperSet( 
-                    w, 
+                s = new WarperSet(
+                    w,
                     new Vector4(header.width, header.height, 1.0f / header.width, 1.0f / header.height),
                     warpTex, blendTex, blackTex,
-                    bo, bb, cam.transform.localRotation, cam.transform.localPosition );
+                    bo, bb, cam.transform.localRotation, cam.transform.localPosition);
                 _warperDict.Add(cam.name, s);
 
                 Debug.Log("VIOSOURPcamera.Start(): camera " + cam.name + " successfully initialized.");
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 Debug.LogError("VIOSOURPcamera.Start(" + cam.name + ") " + ex.ToString());
                 throw ex;
             }
 
-        }
-        else
-        {
+        } else {
             Debug.Log(string.Format("Camera already initialized! Please make sure to name all VIOSO enabled cameras differently"));
         }
     }
 
-    private void OnDisable()
-    {
+    private void OnDisable() {
         RenderPipelineManager.beginCameraRendering -= OnBeginCameraRendering;
 
         Camera cam = GetComponent<Camera>();
@@ -264,12 +244,11 @@ public class VIOSOURPcamera : MonoBehaviour
             _warperDict.Remove(cam.name);
     }
 
-    private void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
-    {
+    private void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera) {
         Camera cam = GetComponent<Camera>();
         WarperSet s;
         _warperDict.TryGetValue(camera.name, out s);
         MyUpdate(ref camera, ref s);
-        
+
     }
 }
