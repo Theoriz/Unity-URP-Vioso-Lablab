@@ -175,9 +175,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProjectionSetup
       objectReference: {fileID: 0}
-    - target: {fileID: 6847047205041720110, guid: c868945916250034c8669716a53598ab, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 2868129435398474119, guid: c868945916250034c8669716a53598ab, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2931936324790396453, guid: c868945916250034c8669716a53598ab, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191484017528370090, guid: c868945916250034c8669716a53598ab, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398528626580514788, guid: c868945916250034c8669716a53598ab, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574734758763695676, guid: c868945916250034c8669716a53598ab, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052694429855116956, guid: c868945916250034c8669716a53598ab, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017560069946565673, guid: c868945916250034c8669716a53598ab, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052255070406438298, guid: c868945916250034c8669716a53598ab, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
