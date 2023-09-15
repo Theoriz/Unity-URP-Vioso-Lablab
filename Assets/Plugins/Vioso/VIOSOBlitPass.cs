@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.Diagnostics;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using static Unity.VisualScripting.Member;
 using VIOSOWarpBlend;
 
 internal class VIOSOBlitPass : ScriptableRenderPass
