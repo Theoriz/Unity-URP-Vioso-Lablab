@@ -16,6 +16,10 @@ Unity URP example project with Vioso integration for the Lablab studio.
 
 3. Add the ProjectionSetup prefab to your scene.
 
+### Common Issues
+
+- If you have a black screen on your game outputs when enabling Vioso in play mode, make sure you have MSAA enabled in your Universal Render Pipeline Asset.
+
 ## Building your application
 
 After building your application, copy the vioso calibration file (.vwf) and VIOSOWarpBlend.ini files from the Unity Assets/Plugins/Vioso folder to your build folder in [your_build_path..]/[your_application_name]_Data/Plugins/[your_architecture]/ next to the ViosoWarpBlend.dll file.
