@@ -14,7 +14,9 @@ Unity URP example project with Vioso integration for the Lablab studio.
 
 2. Copy the ProjectionSetup folder into your project
 
-3. Add the ProjectionSetup prefab to your scene.
+3. Add the Vioso Render Feature to your URP Renderer, and link the VIOSOWarpBlendPP shader inside it.
+
+4. Add the ProjectionSetup prefab to your scene.
 
 ### Common Issues
 
