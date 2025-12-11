@@ -1,5 +1,5 @@
 # Unity-URP-Vioso-Lablab
-Unity URP example project with Vioso integration for the Lablab studio.
+Unity URP example project with Vioso integration for the Lablab studio. You can find the HDRP template [here](https://github.com/Theoriz/Unity-HDRP-Vioso-Lablab).
 
 ## Installation
 
