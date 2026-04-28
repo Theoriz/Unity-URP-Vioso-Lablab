@@ -26,17 +26,15 @@ If you are an experienced user and already have an existing project, follow the 
 
 2. Copy the Assets/ProjectionSetup folder from this project into the Assets folder of your project.
 
-3. Copy the Assets/Resources folder from this project into the Assets folder of your project.
+3. Download the Vioso calibration file [here](https://gofile.me/67omf/yH5xHTjiS) and add it to the Assets/Plugins/Vioso/ folder. 
 
-4. Download the Vioso calibration file [here](https://gofile.me/67omf/yH5xHTjiS) and add it to the Assets/Plugins/Vioso/ folder. 
-
-5. Add the VIOSO Render Feature to your Univeral Renderer Data, and link the VIOSOWarpBlendPP shader to the Shader parameter of that feature.
+4. Add the VIOSO Render Feature to your Univeral Renderer Data, and link the VIOSOWarpBlendPP shader to the Shader parameter of that feature.
 
 ![](https://github.com/Theoriz/Unity-URP-Vioso-Lablab/blob/main/Resources/Documentation/Screenshots/URPRenderFeature.png)
 
-6. Replace the camera in your scene by the ProjectionSetup prefab from the ProjectionSetup/Prefab folder.
+5. Replace the camera in your scene by the ProjectionSetup prefab from the ProjectionSetup/Prefab folder.
 
-7. Follow the Game view setup below.
+6. Follow the Game view setup below.
 
 
 ### Game View setup
