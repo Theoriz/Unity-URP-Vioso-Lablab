@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 /// <summary>
 /// creates a Render Feature that you can add to the URP settings
-/// 
+///
 /// </summary>
 internal class VIOSORenderFeature : ScriptableRendererFeature
 {
@@ -20,17 +20,6 @@ internal class VIOSORenderFeature : ScriptableRendererFeature
     {
         if (renderingData.cameraData.cameraType == CameraType.Game)
             renderer.EnqueuePass(m_RenderPass);
-    }
-
-    public override void SetupRenderPasses(ScriptableRenderer renderer,
-                                        in RenderingData renderingData)
-    {
-        if (renderingData.cameraData.cameraType == CameraType.Game) {
-            // Calling ConfigureInput with the ScriptableRenderPassInput.Color argument
-            // ensures that the opaque texture is available to the Render Pass.
-            m_RenderPass.ConfigureInput(ScriptableRenderPassInput.Color);
-            m_RenderPass.SetTarget(renderer.cameraColorTargetHandle);
-        }
     }
 
     public override void Create()

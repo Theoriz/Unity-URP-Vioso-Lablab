@@ -34,16 +34,9 @@ If you are an experienced user and already have an existing project, follow the 
 
 ![](https://github.com/Theoriz/Unity-URP-Vioso-Lablab/blob/main/Resources/Documentation/Screenshots/URPRenderFeature.png)
 
-6. Disable Render Graph (enable URP compatibility mode) by going into Project Settings -> Player -> Add the URP_COMPATIBILITY_MODE scripting define.
+6. Replace the camera in your scene by the ProjectionSetup prefab from the ProjectionSetup/Prefab folder.
 
-![](https://github.com/Theoriz/Unity-URP-Vioso-Lablab/blob/main/Resources/Documentation/Screenshots/URPCompatibilityMode.png)
-
-> [!NOTE]
-> Compatibility mode is deprecated in Unity 6.3 but this fix is necessary until Vioso URP plugin is upgraded to support Render Graph.
-
-7. Replace the camera in your scene by the ProjectionSetup prefab from the ProjectionSetup/Prefab folder.
-
-8. Follow the Game view setup below.
+7. Follow the Game view setup below.
 
 
 ### Game View setup
