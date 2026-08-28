@@ -91,4 +91,4 @@ In the ProjectionSetup prefab, the Lablab object is a 3D model of the studio for
 
 ## Unity Version
 
-Last tested with Unity 6000.3.0f1.
+Last tested with Unity 6000.5.10f1.
